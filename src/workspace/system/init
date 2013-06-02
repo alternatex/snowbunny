@@ -1,0 +1,2 @@
+#!/bin/bash
+java -jar ../../system/bin/sling/org.apache.sling.launchpad-6-standalone.jar -c data

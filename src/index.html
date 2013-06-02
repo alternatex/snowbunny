@@ -1,0 +1,220 @@
+<!doctype html>
+  <head>
+    <title>Snowbunny</title>
+    <script src="./assets/jquery.min.js"></script>
+  </head>
+  <body onload="onload">    
+    <section id="application">
+      <header>
+        <h1>Snowbunny</h1>
+        <strong>*Do Not Close This Window*</strong>
+      </header>
+      <article>
+        <h2>System Status</h2>
+        <div id="system-status">Initializing</div>
+        <h2>System Log</h2>
+        <div id="system-log"></div>
+      </article>
+      <footer>...</footer>
+    </section>
+    <script>    
+
+      var   
+
+        // store syslog DOM ref (well,......)
+        $syslog = $('#system-log'),
+        $status = $('#system-status'),
+
+        // helper reference
+        item, 
+
+        // helper collection main menus
+        menus = {},
+
+        // load settings
+        settings = JSON.parse(require('fs').readFileSync('settings.json','utf8')),
+
+        // start cloud9 server
+        cloud9 = setTimeout(function(){require('./system/bin/cloud9/server.js')}, 1),
+
+        // ui ref
+        gui = require('nw.gui'),
+
+        // reference to main window
+        mainWindow = gui.Window.get(),
+
+        // on exit handler *
+        mainWindowOpen = mainWindow.on('close', function(e){
+
+          // main window state
+          localStorage.x      = mainWindow.x;
+          localStorage.y      = mainWindow.y;
+          localStorage.width  = mainWindow.width;
+          localStorage.height = mainWindow.height;
+
+          // force close
+          this.close(true);
+          
+          // exit *
+          gui.App.closeAllWindows();
+          gui.App.quit();          
+        }),
+
+        // collect child windows
+        childWindows = [],
+
+        // tray menu reference
+        menu = new gui.Menu(),
+        tray = new gui.Tray({ icon: 'assets/tray.png' }), 
+        
+        // menus enabled when Sling's ready
+        readymenus = ['Browser', 'Console', 'Ripple Emulator'],
+        
+        // utility
+        openWindow = function openWindow(url, options){
+
+          // log
+          $syslog.append("open window " + url + "<br/>");
+                 
+          // open new window as normal frames (see: https://github.com/rogerwang/node-webkit/wiki/Security)
+          var owin = gui.Window.get(window.open(url, '', 'new-instance=true,nodejs=false'), {
+              fullscreen: true,
+              resizeable: false,
+              toolbar: false        
+          });                  
+
+          // when new window complete loading - show it         
+          owin.on('loaded', function(){
+            var win = this;
+            setTimeout(function(){
+              win.setAlwaysOnTop(true);
+              win.show();
+              win.focus();
+              false && win.showDevTools();
+              win.setAlwaysOnTop(false);                      
+            }, 1000);
+          });        
+
+          // attach close handler
+          owin.on('close', function(){
+            delete(childWindows[url]);
+            this.close(true);
+          });
+
+          // single window per initial url store *
+          childWindows[url] = owin;
+          
+          // return new window reference
+          return owin;
+        };
+      
+      // setup menu         
+      menuitem = new gui.MenuItem({ label: "Preferences" });
+      menuitem.enabled = false;
+      menu.append(menuitem);        
+      menu.append(new gui.MenuItem({ type: 'separator' })); 
+      
+      settings.menu.forEach(function(item){
+        if(typeof(item.label)=="undefined" || item.label=="") {
+          menu.append(new gui.MenuItem({ type: 'separator' }));        
+        } else {
+          var menuitem = new gui.MenuItem({ label: item.label })          
+          menu.append(menuitem);
+          menuitem.enabled=false;
+          menuitem.click = function(){ openWindow(item.url); };
+          menus[item.label]=menuitem;
+        }
+      });
+
+      menu.append(new gui.MenuItem({ type: 'separator' }));
+      var menuWebDav = new gui.MenuItem({ label: 'Mount WebDav' });
+      menu.append(menuWebDav);
+      menuWebDav.click=function(){ require('./scripts/mount.js'); };
+      menus['Mount WebDav'] = menuWebDav;
+
+      var menuitem = new gui.MenuItem({ label: "Help" })          
+      menu.append(menuitem);
+      menuitem.enabled=false;
+      menuitem.click = function(){ openWindow("https://github.com/alternatex/snowbunny/wiki"); };
+      menus["Help"]=menuitem;
+
+      menu.append(new gui.MenuItem({ type: 'separator' }));
+      var menuQuit = new gui.MenuItem({ label: 'Quit Snowbunny' });
+      menu.append(menuQuit);
+      menuQuit.click=function(){ gui.App.closeAllWindows(); };
+
+      // show window
+      tray.menu = menu;
+
+      // make noise 
+      mainWindow.requestAttention(true);
+
+      // main window on load handler         
+      onload = function() {
+        if (localStorage.width && localStorage.height) {
+          mainWindow.resizeTo(parseInt(localStorage.width), parseInt(localStorage.height));
+          mainWindow.moveTo(parseInt(localStorage.x), parseInt(localStorage.y));
+        }
+
+        // restore windows *
+        mainWindow.show();
+      };    
+      
+      // helper flag - ensure Sling's not launched multiple times if not avail on init               
+      var slingStarted = false;
+
+      // check Sling's availability
+      var datastoreReady = setInterval(function(){
+
+        // check explorer to determine if ready or not
+        $.ajax({ 
+
+          // ...
+          url: 'http://localhost:8080/.explorer.html',           
+          async: false, 
+
+          // start sling if not avail *
+          error: function(){
+
+            // once *
+            if(!slingStarted) {
+              require('./scripts/sling.js');
+              slingStarted = true;
+            }
+          } 
+        }).done(function(data){
+
+          // when ready enable related menu items  
+          if(data.indexOf('JCR Explorer')!=-1) {
+
+            // we're ready
+            clearInterval(datastoreReady);
+
+            // enable Sling related menu items         
+            readymenus.forEach(function(item){
+              menus[item].enabled=true;
+            });
+
+            // log
+            $syslog.append("initiating webdav mount" + "<br/>");
+
+            // mount webdav
+            require('./scripts/mount.js');
+
+            $status.html("Running")
+          }
+        });
+
+      }, 2000);
+
+      // enable menus
+      ['IDE', 'Help', 'Mount WebDav'].forEach(function(item){
+        menus[item].enabled=true;
+      });      
+
+      // startup IDE
+      setTimeout(menus.IDE.click, 5000);
+
+    </script>    
+  </body>
+</html> 
