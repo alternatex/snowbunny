@@ -6,13 +6,12 @@
   <body onload="onload">    
     <section id="application">
       <header>
-        <h1>Snowbunny</h1>
         <strong>*Do Not Close This Window*</strong>
       </header>
       <article>
-        <h2>System Status</h2>
+        <h2>Status</h2>
         <div id="system-status">Initializing</div>
-        <h2>System Log</h2>
+        <h2>Log</h2>
         <div id="system-log"></div>
       </article>
       <footer>...</footer>
@@ -131,7 +130,7 @@
       menu.append(menuWebDav);
       menuWebDav.click=function(){ require('./scripts/mount.js'); };
       menus['Mount WebDav'] = menuWebDav;
-
+      menu.append(new gui.MenuItem({ type: 'separator' }));
       var menuitem = new gui.MenuItem({ label: "Help" })          
       menu.append(menuitem);
       menuitem.enabled=false;
@@ -192,11 +191,15 @@
 
             // enable Sling related menu items         
             readymenus.forEach(function(item){
+
+              // log
+              $syslog.append("enabling menu item" + item.label + "<br/>");
+
               menus[item].enabled=true;
             });
 
             // log
-            $syslog.append("initiating webdav mount" + "<br/>");
+            $syslog.append("initiating webdav mount<br/>");
 
             // mount webdav
             require('./scripts/mount.js');

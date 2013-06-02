@@ -1,7 +1,7 @@
 Snowbunny
 =============
 
-A development environment & playground for applications built upon [Apache Sling](http://sling.apache.org)
+A development environment / playground for applications built upon [Apache Sling](http://sling.apache.org)
 
 Index
 ------------
@@ -18,7 +18,7 @@ Index
   - [Cloud9 IDE](#cloud9-ide)
   - [Ripple Emulator](#ripple-emulator)
 - [Sugar](#sugar)
-  - [Version Control](#version-control)
+  - [Source Code Management](#source-code-management)
 - [License](#license)
 
 <!--
@@ -49,7 +49,7 @@ Installation
 
 #### Download
 
-A pre-built bundle for OS X can be downloaded [here](http://www.mega.nz/).
+A pre-built bundle for OS X can be downloaded [here](https://mega.co.nz/#!AIYmHKAJ!VxZ7XDwi-yiRVd5KAovMwFuN6aMX7oBVvgWDUxYj18o).
 
 ### Source
 
@@ -152,9 +152,9 @@ Components
 Sugar
 ------------
 
-### Version Control
+### Source Code Management
 
-Contents can be managed by your favourite version control system easily using Cloud9/Console:
+Manage resources easily using `git` via Cloud9 console:
 
 ```shell
 git init
@@ -169,4 +169,4 @@ License
 Released under two licenses: new BSD, and MIT. You may pick the
 license that best suits your development needs.
 
-https://raw.github.com/alternatex/snowbunny/master/LICENSE
+https://raw.github.com/alternatex/snowbunny/develop/LICENSE

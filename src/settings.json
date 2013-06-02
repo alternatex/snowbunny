@@ -4,8 +4,6 @@
     { "label": "Browser", "url": "http://localhost:8080/.explorer.html", "unique": true },
     { "label": "Console", "url": "http://admin:admin@localhost:8080/system/console", "unique": true },
     { "separator": true },
-    { "label": "Ripple Emulator", "url": "modules/ripple/index.html", "unique": true },
-    { "separator": true },
-    { "label": "Help", "url": "https://github.com/alternatex/snowbunny/wiki", "unique": true }
+    { "label": "Ripple Emulator", "url": "modules/ripple/index.html", "unique": true }
   ]
 }
