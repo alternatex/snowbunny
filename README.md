@@ -35,7 +35,7 @@ Index
 Bootstrap
 ------------
 
-Cloud9 is started automatically with it's process bound to Snowbunny as parent process. 
+Cloud9 is started automatically with it's process bound to Snowbunny as parent process / lifecycle. 
 
 Post starting Cloud9 Sling availability is checked using an HTTP request. XXX this request fails a Sling instance will be started automatically aswell. 
 
@@ -49,7 +49,7 @@ Installation
 
 #### Download
 
-A pre-built bundle for OS X can be downloaded [here](https://mega.co.nz/#!AIYmHKAJ!VxZ7XDwi-yiRVd5KAovMwFuN6aMX7oBVvgWDUxYj18o).
+A pre-built bundle for OS X can be downloaded [here](https://docs.google.com/file/d/0B5qLhg-Pef8pTHZhVHctcEo3ZkU/edit?usp=sharing).
 
 ### Source
 
@@ -108,6 +108,12 @@ Tour
   ***Version Control***
 </a>
 -->
+
+Bootstrap / Workflow
+------------
+
+...
+
 Components
 ------------
 
@@ -154,7 +160,7 @@ Sugar
 
 ### Source Code Management
 
-Manage resources easily using `git` via Cloud9 console:
+Manage source files easily using `git` via Cloud9 console:
 
 ```shell
 git init
@@ -163,6 +169,11 @@ git add content
 git commit -m "initial commit" -a
 git push -u origin master
 ```
+
+Todo
+------------
+
+- Cloud9 IDE: Syntax Highlightning for .esp files
 
 License
 ------------

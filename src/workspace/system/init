@@ -1,2 +1,6 @@
 #!/bin/bash
-java -jar ../../system/bin/sling/org.apache.sling.launchpad-6-standalone.jar -c data
+java -jar ../../system/bin/sling/org.apache.sling.launchpad-6-standalone.jar -c data &
+
+# prepare shutdown script
+sling_pid=$!
+echo "#!/bin/bash \n kill -9 ${sling_pid}; rm -rf $(pwd)/finit" > finit && chmod a+x finit
