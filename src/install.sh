@@ -39,7 +39,9 @@ export PATH=$PATH:`pwd`/../../node_modules/sm/bin
 git clone https://github.com/ajaxorg/cloud9.git && cd cloud9
 
 # avoid bogus * 
-npm cache clear 
+#cd ~ && npm cache clear && cd -
+
+npm install connect@1.8.7
 
 # install cloud9 
 sm install
