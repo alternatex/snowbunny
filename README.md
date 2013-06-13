@@ -49,7 +49,7 @@ Installation
 
 #### Download
 
-A pre-built bundle for OS X can be downloaded [here](https://docs.google.com/file/d/0B5qLhg-Pef8pTHZhVHctcEo3ZkU/edit?usp=sharing).
+A pre-built bundle for OS X can be downloaded [here](https://github.com/alternatex/snowbunny/archive/0.1.0.tar.gz).
 
 ### Source
 
