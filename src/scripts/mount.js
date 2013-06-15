@@ -9,7 +9,7 @@ setTimeout(function() {
   terminal.stdin.write('echo `chmod a+x '+__dirname+'/mount.sh`');  
   
   // mount webdav
-  terminal.stdin.write('echo `open '+__dirname+'/mount.sh`');
+  terminal.stdin.write('echo `open /Applications/Utilities/Terminal.app '+__dirname+'/mount.sh`');
 
   // cleanup
   terminal.stdin.write('echo `sleep 10  && rm '+__dirname+'/mount.sh`');  
