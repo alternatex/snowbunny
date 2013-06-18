@@ -12,6 +12,8 @@ Index
   - [Source](#source)
       - [Prerequisites](#prerequisites)
       - [Building](#building)
+- [Configuration](#configuration)
+  - [Shell Scripts](#shell-scripts)
 - [Components](#components)
   - [Node-Webkit](#node-webkit)
   - [Apache Sling](#apache-sling)
@@ -45,16 +47,6 @@ A WebDav mount to connect the two is initiated as soon as Sling is ready to oper
 Installation
 ------------
 
-### Configuration
-
-#### Ensure `.sh` files are opened with Terminal.app
-  
-Create a new textfile and name it `test.sh`. Right click the file and select `Get Info`. 
-
-Check the selected application in the section `Open with` » if it's not set to a terminal application: Select the current item and choose `Other ...`, navigate to `/Applications/Utilities/` and select `Terminal.app`, tick the option `Always open with`, and confirm. 
-
-Optional, but recommended: Select `Change All...` to apply the change to all existing files.
-
 ### Binaries
 
 #### Download
@@ -79,6 +71,20 @@ cd snowbunny/src
 ./install.sh
 open ../dist/snowbunny.app
 ```
+
+Configuration
+------------
+
+### Shell Scripts
+
+**Ensure `.sh` files are opened with Terminal.app**
+  
+Create a new textfile and name it `test.sh`. Right click the file and select `Get Info`. 
+
+Check the selected application in the section `Open with` » if it's not set to a terminal application: Select the current item and choose `Other ...`, navigate to `/Applications/Utilities/` and select `Terminal.app`, tick the option `Always open with`, and confirm. 
+
+Optional, but recommended: Select `Change All...` to apply the change to all existing files.
+
 
 Bootstrap / Workflow
 ------------
