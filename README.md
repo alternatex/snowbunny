@@ -21,7 +21,7 @@ Index
   - [Source Code Management](#source-code-management)
 - [License](#license)
 
-<!-
+<!--
 - [Tour](#tour)
   - [Tray Menu](#tour-tray-menu)
   - [Cloud9 IDE](#tour-cloud9-ide)
