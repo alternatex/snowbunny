@@ -6,6 +6,7 @@ A development environment / playground for applications built upon [Apache Sling
 Index
 ------------
 
+- [Overview](#overview)
 - [Installation](#installation)
   - [Binaries](#binaries)
       - [Download](#download)
@@ -43,6 +44,11 @@ Post starting Cloud9 Sling availability is checked using an HTTP request. XXX th
 
 A WebDav mount to connect the two is initiated as soon as Sling is ready to operate.
 -->
+
+Overview
+------------
+
+Get a glimps of what this is about [here](http://slid.es/giannifurger/snowbunny)
 
 Installation
 ------------
