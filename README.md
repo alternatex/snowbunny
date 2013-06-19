@@ -82,15 +82,15 @@ Configuration
 ------------
 
 ### Shell Scripts
-
-**Ensure `.sh` files are opened with Terminal.app**
   
 Create a new textfile and name it `test.sh`. Right click the file and select `Get Info`. 
 
-Check the selected application in the section `Open with` » if it's not set to a terminal application: Select the current item and choose `Other ...`, navigate to `/Applications/Utilities/` and select `Terminal.app`, tick the option `Always open with`, and confirm. 
-
-Optional, but recommended: Select `Change All...` to apply the change to all existing files.
-
+Check the selected application in the section `Open with`, if it's not set to a terminal application: 
+- Select the current item and choose `Other ...`
+- Navigate to `/Applications/Utilities/` and select `Terminal.app`
+- Tick the option `Always open with` 
+- Optional, but recommended: tick `Change All...` to apply the change to all existing files.
+- Confirm *
 
 Bootstrap / Workflow
 ------------
