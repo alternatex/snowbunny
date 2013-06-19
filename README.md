@@ -48,7 +48,7 @@ A WebDav mount to connect the two is initiated as soon as Sling is ready to oper
 Overview
 ------------
 
-Get a glimps of what this is about [here](http://slid.es/giannifurger/snowbunny)
+Get a glimps of what this is about [here](http://slid.es/giannifurger/snowbunny/fullscreen)
 
 Installation
 ------------
