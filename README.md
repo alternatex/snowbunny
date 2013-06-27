@@ -6,12 +6,15 @@ A development environment / playground for applications built upon [Apache Sling
 Index
 ------------
 
+- [Overview](#overview)
 - [Installation](#installation)
   - [Binaries](#binaries)
       - [Download](#download)
   - [Source](#source)
       - [Prerequisites](#prerequisites)
       - [Building](#building)
+- [Configuration](#configuration)
+  - [Shell Scripts](#shell-scripts)
 - [Components](#components)
   - [Node-Webkit](#node-webkit)
   - [Apache Sling](#apache-sling)
@@ -42,6 +45,11 @@ Post starting Cloud9 Sling availability is checked using an HTTP request. XXX th
 A WebDav mount to connect the two is initiated as soon as Sling is ready to operate.
 -->
 
+Overview
+------------
+
+Get a glimps of what this is about [here](http://slid.es/giannifurger/snowbunny/fullscreen)
+
 Installation
 ------------
 
@@ -69,45 +77,20 @@ cd snowbunny/src
 ./install.sh
 open ../dist/snowbunny.app
 ```
-<!--
-Tour
+
+Configuration
 ------------
 
-<a target="_blank" href="assets/preview/highres.tray-menu.jpg">
-  <img src="assets/preview/tray-menu.jpg" alt="Tray Menu"/><br/>
-  ***Tray Menu***
-</a>
+### Shell Scripts
+  
+Create a new textfile and name it `test.sh`. Right click the file and select `Get Info`. 
 
-<a target="_blank" href="https://raw.github.com/alternatex/snowbunny/release/src/assets/preview/cloud9-ide.png">
-  <img style="max-width: 200px;" src="https://raw.github.com/alternatex/snowbunny/release/src/assets/preview/cloud9-ide.png" alt="Cloud9 IDE"/><br/>
-  ***Cloud9 IDE***
-</a>
-
-<a target="_blank" href="assets/preview/highres.webdav-connect.jpg">
-  <img src="assets/preview/webdav-connect.jpg" alt="WebDav Connect"/><br/>
-  ***WebDav Connect***
-</a>
-
-<a target="_blank" href="assets/preview/highres.browser.jpg">
-  <img src="assets/preview/browser.jpg" alt="Browser"/><br/>
-  ***Browser***
-</a>
-
-<a target="_blank" href="assets/preview/highres.console.jpg">
-  <img src="assets/preview/console.jpg" alt="Console"/><br/>
-  ***Console***
-</a>
-
-<a target="_blank" href="assets/preview/highres.ripple-emulator.jpg">
-  <img src="assets/preview/ripple-emulator.jpg" alt="Ripple Emulator"/><br/>
-  ***Ripple Emulator***
-</a>
-
-<a target="_blank" href="assets/preview/highres.version-control.jpg">
-  <img src="assets/preview/version-control.jpg" alt="Version Control"/><br/>
-  ***Version Control***
-</a>
--->
+Check the selected application in the section `Open with`, if it's not set to a terminal application: 
+- Select the current item and choose `Other ...`
+- Navigate to `/Applications/Utilities/` and select `Terminal.app`
+- Tick the option `Always open with` 
+- Optional, but recommended: tick `Change All...` to apply the change to all existing files.
+- Confirm *
 
 Bootstrap / Workflow
 ------------
