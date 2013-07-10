@@ -5,10 +5,6 @@
     { "label": "Console", "url": "http://admin:admin@localhost:8080/system/console", "unique": true },
     { "separator": true },
     { "label": "Ripple Emulator", "url": "modules/ripple/index.html", "unique": true },
-    { "separator": true },
-    { "label": "Tail", "menu": [
-      { "label": "Error", "url": "modules/log/error.html", "unique": true }
-      { "label": "Request", "url": "modules/log/request.html", "unique": true }
-    ]}
+    { "separator": true }
   ]
 }
