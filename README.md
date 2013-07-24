@@ -14,7 +14,6 @@ Index
       - [Prerequisites](#prerequisites)
       - [Building](#building)
 - [Configuration](#configuration)
-  - [Shell Scripts](#shell-scripts)
 - [Components](#components)
   - [Node-Webkit](#node-webkit)
   - [Apache Sling](#apache-sling)
@@ -70,7 +69,7 @@ A pre-built vagrant box package can be downloaded [here](https://github.com/alte
 ```bash
 
 # create workspace
-mkdir snowbunn-dev && $_;
+mkdir snowbunny-dev && $_;
 
 # fetch latest sources
 git clone https://github.com/alternatex/snowbunny.git .
@@ -82,11 +81,8 @@ vagrant up
 # scp copy-over 
 scp setup.sh vagrant@127.0.0.1:
 
-# ssh command
+# ssh run setup *
 ssh vagrant@127.0.0.1 'chmod a+x setup.sh && sudo ./setup.sh'
-
-# run 
-./setup.sh
 
 # ...
 
@@ -97,7 +93,7 @@ Configuration
 
 ...
 
-Bootstrap / Workflow
+Workflow
 ------------
 
 ...
