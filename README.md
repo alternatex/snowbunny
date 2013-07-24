@@ -57,40 +57,45 @@ Installation
 
 #### Download
 
-A pre-built bundle for OS X can be downloaded [here](https://github.com/alternatex/snowbunny/archive/0.1.0.tar.gz).
+A pre-built vagrant box package can be downloaded [here](https://github.com/alternatex/snowbunny/archive/1.0.0.tar.gz).
 
 ### Source
 
 #### Prerequisites
 
-* [OS X 10.8.2 (or greater)](http://www.apple.com/osx)
-* [Xcode Command-Line Tools](https://developer.apple.com/xcode/)
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org)
-* [Homebrew](http://mxcl.github.io/homebrew/)
+* [Virtualbox 4.1.2](http://www.virtualbox.org)
 
 #### Building
 
 ```bash
-git clone https://github.com/alternatex/snowbunny.git snowbunny
-cd snowbunny/src
-./install.sh
-open ../dist/snowbunny.app
+
+# create workspace
+mkdir snowbunn-dev && $_;
+
+# fetch latest sources
+git clone https://github.com/alternatex/snowbunny.git .
+
+# initialize vagrant box
+vagrant init
+vagrant up
+
+# scp copy-over 
+scp setup.sh vagrant@127.0.0.1:
+
+# ssh command
+ssh vagrant@127.0.0.1 'chmod a+x setup.sh && sudo ./setup.sh'
+
+# run 
+./setup.sh
+
+# ...
+
 ```
 
 Configuration
 ------------
 
-### Shell Scripts
-  
-Create a new textfile and name it `test.sh`. Right click the file and select `Get Info`. 
-
-Check the selected application in the section `Open with`, if it's not set to a terminal application: 
-- Select the current item and choose `Other ...`
-- Navigate to `/Applications/Utilities/` and select `Terminal.app`
-- Tick the option `Always open with` 
-- Optional, but recommended: tick `Change All...` to apply the change to all existing files.
-- Confirm *
+...
 
 Bootstrap / Workflow
 ------------
