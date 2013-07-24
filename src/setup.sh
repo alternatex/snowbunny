@@ -13,10 +13,10 @@
 
           ~ .................................................................. ~
 
-                          :: 	what 	::    vagrant setup	  ::
-                          :: 	which	::    0.1 			  ::
-                          :: 	when 	::    2013/07/24      ::
-                          :: 	who 	::    me              ::                                             
+                          ::    what    ::    vagrant setup   ::
+                          ::    which   ::    0.1             ::
+                          ::    when    ::    2013/07/24      ::
+                          ::    who     ::    me              ::                                             
           ~ .................................................................. ~                
   
           notes:
@@ -39,7 +39,7 @@ welcome-message
   # disable cmd echo
   set +v 
 
-  # config // constants
+  # config
   VAGRANT_USER="vagrant"
   VAGRANT_PASS="vagrant"
 
@@ -129,7 +129,7 @@ welcome-message
   # expose
   ln -s bin/phantomjs /usr/bin/phantomjs
 
-  # ...
+  # go home
   cd ~
 
   # customize w/casperjs
@@ -141,7 +141,7 @@ welcome-message
   echo "ln -sf `pwd`/bin/casperjs /usr/bin/casperjs"
   sudo ln -sf /home/vagrant/casperjs/bin/casperjs /usr/bin/casperjs
 
-  # ...
+  # go home
   cd ~
 
   # to check: is this needed for real?
@@ -173,7 +173,11 @@ welcome-message
   bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
   echo "" >> ~/.zshrc
   echo "# register RVM" >> ~/.zshrc
+
+  # reload configuration
   . ~/.zshrc
+
+  # update configuration
   echo '[[ -s "/home/`whoami`/.rvm/scripts/rvm" ]] && source "/home/`whoami`/.rvm/scripts/rvm"' >> ~/.zshrc
 
   # install ruby 1.9.2 through rvm
@@ -207,7 +211,6 @@ welcome-message
 
   # cd /etc/apache2/mods-enabled
   # sudo ln -s ../mods-available/vhost_alias.load vhost_alias.load
-  # 
 
   #<VirtualHost *:80>
   #  UseCanonicalName Off
@@ -220,10 +223,7 @@ welcome-message
   #  </Directory>
   #</VirtualHost>
 
-  cd ~
-
-  # shc to compile scripts: http://www.datsi.fi.upm.es/~frosal/sources/shc-3.8.9.tgz
-
+  # go home
   cd ~
   
   # create workspace
@@ -235,3 +235,5 @@ welcome-message
   echo "# virtualbox" >> /etc/apt/sources.list
   echo "deb http://download.virtualbox.org/virtualbox/debian lucid contrib non-free" >> /etc/apt/sources.list
   exit
+
+
