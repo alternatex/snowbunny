@@ -62,7 +62,7 @@ A pre-built vagrant box package can be downloaded [here](https://github.com/alte
 
 #### Prerequisites
 
-* [Virtualbox 4.1.2](http://www.virtualbox.org)
+* [Virtualbox](http://www.virtualbox.org)
 
 #### Building
 
@@ -79,10 +79,10 @@ vagrant init
 vagrant up
 
 # scp copy-over 
-scp setup.sh vagrant@127.0.0.1:
+scp setup.sh vagrant@localhost:
 
 # ssh run setup *
-ssh vagrant@127.0.0.1 'chmod a+x setup.sh && sudo ./setup.sh'
+ssh vagrant@localhost 'chmod a+x setup.sh && sudo ./setup.sh'
 
 # ...
 

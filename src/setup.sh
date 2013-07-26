@@ -173,6 +173,7 @@ welcome-message
   bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
   echo "" >> ~/.zshrc
   echo "# register RVM" >> ~/.zshrc
+  echo "export PATH=\$PATH:/usr/local/rvm/bin" >> ~/.zshrc
 
   # reload configuration
   . ~/.zshrc
@@ -208,32 +209,3 @@ welcome-message
   # back to square one
   cd -  
   sm install
-
-  # cd /etc/apache2/mods-enabled
-  # sudo ln -s ../mods-available/vhost_alias.load vhost_alias.load
-
-  #<VirtualHost *:80>
-  #  UseCanonicalName Off
-  #  VirtualDocumentRoot /wwwroot/%1/public
-  #
-  #  php_value suhosin.srand.ignore 0·
-  #
-  #  <Directory /wwwroot>
-  #    AllowOverride All
-  #  </Directory>
-  #</VirtualHost>
-
-  # go home
-  cd ~
-  
-  # create workspace
-  mkdir workspace && cd $_  
-
-  # configure virtualbox apt-repo
-  sudo -s
-  echo "" >> /etc/apt/sources.list
-  echo "# virtualbox" >> /etc/apt/sources.list
-  echo "deb http://download.virtualbox.org/virtualbox/debian lucid contrib non-free" >> /etc/apt/sources.list
-  exit
-
-
