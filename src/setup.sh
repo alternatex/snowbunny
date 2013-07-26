@@ -60,7 +60,7 @@ welcome-message
   wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
   chsh -s `which zsh`
   
-  # GITHUB no user/pass alternative (but suckey) to ssh-agent: .netrc
+  # GITHUB user/pass alternative
   # machine github.com
   # login <your_github_login>
   # password <your_github_password>
@@ -140,6 +140,19 @@ welcome-message
   $("ln -sf `pwd`/bin/casperjs /usr/bin/casperjs")
   echo "ln -sf `pwd`/bin/casperjs /usr/bin/casperjs"
   sudo ln -sf /home/vagrant/casperjs/bin/casperjs /usr/bin/casperjs
+
+  # go home
+  cd ~
+
+  # java *
+  sudo apt-get install openjdk-7-jdk
+
+  # workspace for oak *
+  mkdir -p development/oak && cd $_;
+
+  # fetch jackrabbit-oak
+  git clone https://github.com/apache/jackrabbit-oak && cd jackrabbit-oak
+  mvn clean install
 
   # go home
   cd ~

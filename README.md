@@ -63,6 +63,7 @@ A pre-built vagrant box package can be downloaded [here](https://github.com/alte
 #### Prerequisites
 
 * [Virtualbox](http://www.virtualbox.org)
+* [Maven 3.x](http://maven.apache.org)
 
 #### Building
 
