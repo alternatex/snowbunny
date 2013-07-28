@@ -8,41 +8,18 @@ Index
 
 - [Overview](#overview)
 - [Installation](#installation)
+  - [Prerequisites](#prerequisites)
   - [Binaries](#binaries)
-      - [Download](#download)
   - [Source](#source)
-      - [Prerequisites](#prerequisites)
-      - [Building](#building)
 - [Configuration](#configuration)
 - [Components](#components)
-  - [Node-Webkit](#node-webkit)
   - [Apache Sling](#apache-sling)
   - [Cloud9 IDE](#cloud9-ide)
   - [Ripple Emulator](#ripple-emulator)
-- [Sugar](#sugar)
-  - [Source Code Management](#source-code-management)
+  - [Vagrant](#vagrant)
+  - [Virtualbox](#virtualbox)
+- [Roadmap](#roadmap)
 - [License](#license)
-
-<!--
-- [Tour](#tour)
-  - [Tray Menu](#tour-tray-menu)
-  - [Cloud9 IDE](#tour-cloud9-ide)
-  - [Sling Browser](#tour-sling-browser)
-  - [Sling Console](#tour-sling-console)
-  - [Ripple Emulator](#tour-ripple-emulator)
-  - [Version Control](#tour-version-control)
--->
-
-<!--
-Bootstrap
-------------
-
-Cloud9 is started automatically with it's process bound to Snowbunny as parent process / lifecycle. 
-
-Post starting Cloud9 Sling availability is checked using an HTTP request. XXX this request fails a Sling instance will be started automatically aswell. 
-
-A WebDav mount to connect the two is initiated as soon as Sling is ready to operate.
--->
 
 Overview
 ------------
@@ -59,22 +36,14 @@ Installation
 
 ### Binaries
 
-#### Download
-
 A pre-built vagrant box package can be downloaded [here](https://github.com/alternatex/snowbunny/archive/1.0.0.tar.gz).
 
 ### Source
 
-#### Prerequisites
-
-* [Maven 3.x](http://maven.apache.org)
-
-#### Building
-
 ```bash
 
 # create workspace
-mkdir snowbunny-dev && $_;
+mkdir snowbunny && $_;
 
 # fetch latest sources
 git clone https://github.com/alternatex/snowbunny.git .
@@ -83,36 +52,33 @@ git clone https://github.com/alternatex/snowbunny.git .
 vagrant init
 vagrant up
 
-# scp copy-over 
-scp setup.sh vagrant@localhost:
-
-# ssh run setup *
-ssh vagrant@localhost 'chmod a+x setup.sh && sudo ./setup.sh'
+# run installer
+scp src/scripts/setup/install.sh vagrant@localhost:
+ssh vagrant@localhost './install.sh'
 
 # ...
-
 ```
 
 Configuration
 ------------
 
-...
+### Tools
 
-Workflow
+[Snowbunny UI](https://github.com/alternatex/snowbunny-ui)
+
+Shell Access
 ------------
 
-...
+### Interal 
+
+You can connect to the development environment using the command `vagrant ssh` (defaults).
+
+### External 
+
+Use `tunnelx` to easily access the environment with limited access.
 
 Components
 ------------
-
-### Node-Webkit
-
-[https://github.com/rogerwang/node-webkit](https://github.com/rogerwang/node-webkit)
-
-> node-webkit is an app runtime based on Chromium and node.js. You can write native apps in HTML and Javascript with node-webkit. It also lets you to call Node.js modules directly from DOM and enables a new way of writing native applications with all Web technologies.
-
-> It's created and developed in Intel Open Source Technology Center.
 
 ### Apache Sling
 
@@ -144,25 +110,26 @@ Components
 
 > It is free software, licensed under the Apache License, Version 2.0.
 
-Sugar
-------------
+### Vagrant
 
-### Source Code Management
+[http://www.vagrantup.com](http://www.vagrantup.com)
 
-Manage source files easily using `git` via Cloud9 console:
+> Vagrant provides easy to configure, reproducible, and portable work environments built on top of industry-standard technology and controlled by a single consistent workflow to help maximize the productivity and flexibility of you and your team.
 
-```shell
-git init
-git remote add origin https://github.com/username/repository
-git add content 
-git commit -m "initial commit" -a
-git push -u origin master
-```
+> To achieve its magic, Vagrant stands on the shoulders of giants. Machines are provisioned on top of VirtualBox, VMware, AWS, or any other provider. Then, industry-standard provisioning tools such as shell scripts, Chef, or Puppet, can be used to automatically install and configure software on the machine.
 
-Todo
-------------
+### Virtualbox
 
-- Cloud9 IDE: Syntax Highlightning for .esp files
+[http://www.virtualbox.org](http://www.virtualbox.org)
+
+> VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product for enterprise as well as home use. Not only is VirtualBox an extremely feature rich, high performance product for enterprise customers, it is also the only professional solution that is freely available as Open Source Software under the terms of the GNU General Public License (GPL) version 2. See "About VirtualBox" for an introduction.
+
+Roadmap 
+-------------
+
+### Cloud9 IDE
+
+- Syntax Highlightning for .esp files
 
 License
 ------------
