@@ -49,6 +49,9 @@ sudo apt-get update
 # upgrade installed
 sudo apt-get upgrade
 
+# upgrade whole release
+do-release-upgrade
+
 # update repos
 sudo apt-get update
 
@@ -86,9 +89,6 @@ sudo apt-get install -y php5 libapache2-mod-php5
 
 # reload configuration
 . ~/.zshrc
-
-# upgrade whole release
-do-release-upgrade
 
 # update repos
 sudo apt-get update
@@ -179,9 +179,6 @@ sudo aptitude -y install ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ru
 # install basics - p.III - ruby gems
 cd ~ && sudo wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz && sudo tar xvzf rubygems-1.3.7.tgz && cd rubygems-1.3.7 && sudo ruby setup.rb && sudo ln -s /usr/bin/gem1.8 /usr/bin/gem && cd - && sudo gem update --system
 
-# fetch curly curl curl curl
-sudo apt-get install -y curl
-
 # reload configuration
 . ~/.zshrc
 
@@ -202,7 +199,6 @@ sudo rvm install ruby-1.9.3
 sudo rvm use --default ruby-1.9.3
 
 # cloud9 IDE
-sudo npm update npm -g
 sudo npm install -g sm
 npm install c9
 echo `$HOME/.c9/installs/c9local/bin/c9` >> ~/.zshrc
