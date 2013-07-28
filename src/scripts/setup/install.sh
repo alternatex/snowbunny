@@ -42,6 +42,10 @@ set +v
 # config
 VAGRANT_USER="vagrant"
 VAGRANT_PASS="vagrant"
+SHELLRC=~/.shellrc
+
+# initialize shell configuration
+echo "" > $SHELLRC
 
 # update repos
 sudo apt-get update
@@ -68,17 +72,11 @@ chsh -s `which zsh`
 # login <your_github_login>
 # password <your_github_password>
 
-# activate 
-/bin/zsh
-
 # install sshpass
 wget http://netcologne.dl.sourceforge.net/project/sshpass/sshpass/1.05/sshpass-1.05.tar.gz
 ./configure
 make
 sudo make install
-
-# reload configuration
-. ~/.zshrc
 
 # install php5 / extensions
 sudo ppa-purge ppa:ondrej/php5
@@ -86,9 +84,6 @@ sudo apt-get install -y python-software-properties
 sudo add-apt-repository ppa:ondrej/php5
 sudo apt-get update
 sudo apt-get install -y php5 libapache2-mod-php5
-
-# reload configuration
-. ~/.zshrc
 
 # update repos
 sudo apt-get update
@@ -102,13 +97,13 @@ make
 sudo make install
 
 # set node path  
-echo "" >> ~/.zshrc
-echo "# set node path" >> ~/.zshrc
-echo "export NODE_PATH=\"/usr/local/lib/node\"" >> ~/.zshrc
+echo "" >> $SHELLRC
+echo "# set node path" >> $SHELLRC
+echo "export NODE_PATH=\"/usr/local/lib/node\"" >> $SHELLRC
 export NODE_PATH="/usr/local/lib/node"
 
 # reload configuration
-. ~/.zshrc
+. $SHELLRC
 
 # boohoo-bootstrap extract
 sudo apt-get -y install openssh-server xvfb libqt4-dev libqt4-webkit bison flex build-essential g++ x11-session-utils x11-xkb-utils x11-xfs-utils x11-xserver-utils x11proto-fonts-dev xfonts-100dpi-transcoded xfonts-75dpi-transcoded xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-mathml x-ttcidfont-conf
@@ -170,29 +165,23 @@ echo "... or ..."
 echo "cd ~/casperjs/samples"
 echo "DISPLAY=:0 casperjs logcolor.js"
 
-# reload configuration
-. ~/.zshrc
-
 # install basics - p.II - ruby
 sudo aptitude -y install ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby && sudo ln -s /usr/bin/ruby1.8 /usr/bin/ruby && sudo ln -s /usr/bin/ri1.8 /usr/bin/ri && sudo ln -s /usr/bin/rdoc1.8 /usr/bin/rdoc && sudo ln -s /usr/bin/irb1.8 /usr/bin/irb
 
 # install basics - p.III - ruby gems
 cd ~ && sudo wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz && sudo tar xvzf rubygems-1.3.7.tgz && cd rubygems-1.3.7 && sudo ruby setup.rb && sudo ln -s /usr/bin/gem1.8 /usr/bin/gem && cd - && sudo gem update --system
 
-# reload configuration
-. ~/.zshrc
-
 # fetch rvm
 bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
-echo "" >> ~/.zshrc
-echo "# register RVM" >> ~/.zshrc
-echo "export PATH=\$PATH:/usr/local/rvm/bin" >> ~/.zshrc
+echo "" >> $SHELLRC
+echo "# register RVM" >> $SHELLRC
+echo "export PATH=\$PATH:/usr/local/rvm/bin" >> $SHELLRC
 
 # reload configuration
-. ~/.zshrc
+. $SHELLRC
 
 # update configuration
-echo '[[ -s "/home/`whoami`/.rvm/scripts/rvm" ]] && source "/home/`whoami`/.rvm/scripts/rvm"' >> ~/.zshrc
+echo '[[ -s "/home/`whoami`/.rvm/scripts/rvm" ]] && source "/home/`whoami`/.rvm/scripts/rvm"' >> $SHELLRC
 
 # install ruby 1.9.2 through rvm
 sudo rvm install ruby-1.9.3
@@ -201,7 +190,7 @@ sudo rvm use --default ruby-1.9.3
 # cloud9 IDE
 sudo npm install -g sm
 npm install c9
-echo `$HOME/.c9/installs/c9local/bin/c9` >> ~/.zshrc
+echo `$HOME/.c9/installs/c9local/bin/c9` >> $SHELLRC
 
 # adjust access rights
 sudo chown -R vagrant:vagrant /usr/local/lib/node /usr/local/lib/node_modules ~/.sourcemint ~/.npm ~/tmp
@@ -217,3 +206,8 @@ sm install
 # install utilities
 # shinst, tunnelx
 # configuration / settings for automation helpers 
+
+# append shell to configuration (TODO: think, solve)
+cat $SHELLRC >> ~/.zshrc
+cat $SHELLRC >> ~/.bashrc
+cat $SHELLRC >> ~/.bash_profile
