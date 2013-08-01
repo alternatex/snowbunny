@@ -59,10 +59,10 @@ ssh vagrant@localhost './install.sh'
 # ...
 ```
 
-Configuration
+Tools
 ------------
 
-### Tools
+### Administration
 
 [Snowbunny UI](https://github.com/alternatex/snowbunny-ui)
 
