@@ -11,7 +11,11 @@ Index
   - [Prerequisites](#prerequisites)
   - [Binaries](#binaries)
   - [Source](#source)
-- [Configuration](#configuration)
+- [Tools](#tools)
+  - [Administration](#administration)
+- [Shell Access](#shell-access)
+  - [Internal](#internal)
+  - [External](#external)
 - [Components](#components)
   - [Apache Sling](#apache-sling)
   - [Cloud9 IDE](#cloud9-ide)
@@ -69,7 +73,7 @@ Tools
 Shell Access
 ------------
 
-### Interal 
+### Internal 
 
 You can connect to the development environment using the command `vagrant ssh` (defaults).
 
